@@ -29,6 +29,8 @@ function App() {
   // Updated Contract Address from user
   const ca = 'FLxxxxxxxxxxxxxxxxxxxxxxxxxpump'
 
+  const pumpFunUrl = `https://pump.fun/coin/${ca}`
+
   return (
     <div className="min-h-screen w-full bg-white text-gray-900 overflow-x-hidden">
       {/* Navbar */}
@@ -65,7 +67,7 @@ function App() {
         </Container>
       </header>
 
-      {/* Hero: angry cats fighting, no coin animation */}
+      {/* Hero: real angry cats fighting, no coin animation */}
       <Section id="home" className="relative">
         <div className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-purple-50/50" />
@@ -77,7 +79,7 @@ function App() {
                 transition={{ duration: 0.7 }}
                 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight"
               >
-                The Angriest Space Cat is <GradientText>On-Chain</GradientText> 😼🔥
+                The Angriest Space Cat is <GradientText>On Solana</GradientText> 😼🔥
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -85,7 +87,7 @@ function App() {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="mt-4 text-lg sm:text-xl text-gray-700 max-w-2xl"
               >
-                Welcome to Michi Mayhem ($MICHI) — a neon-fueled furball with laser eyes, turbo zoomies, and unlimited meow-mentum. If it pumps, we purr. If it dumps, we hiss and meme harder.
+                Welcome to Michi Mayhem ($MICHI) — a neon-fueled furball with laser eyes, turbo zoomies, and unlimited meow-mentum. If it pumps, we purr. If it dumps, we hiss and meme harder — now on Solana speed.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -93,8 +95,8 @@ function App() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="mt-8 flex flex-col sm:flex-row gap-3"
               >
-                <a href="#buy" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white px-6 py-3 text-base font-semibold shadow-lg">
-                  Buy on DEX <ArrowRight size={18} />
+                <a href={pumpFunUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white px-6 py-3 text-base font-semibold shadow-lg">
+                  Buy on Pump.fun <ArrowRight size={18} />
                 </a>
                 <a href="#about" className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white/70 px-6 py-3 text-base font-semibold hover:bg-white">
                   Why is the cat angry?
@@ -110,32 +112,34 @@ function App() {
               </motion.div>
             </div>
 
-            {/* Angry Cat Fight Visual */}
+            {/* Angry Cat Fight Visual - using real cat photos */}
             <div className="order-1 lg:order-2 relative h-[40vh] sm:h-[50vh] lg:h-[60vh]">
               <div className="absolute -inset-2 rounded-[2rem] bg-gradient-to-tr from-rose-400/30 via-purple-400/20 to-blue-400/30 blur-2xl" />
-              <div className="relative h-full rounded-[2rem] border border-gray-200 bg-white/90 shadow-xl overflow-hidden grid place-items-center">
-                <div className="relative w-full h-full flex items-center justify-center">
+              <div className="relative h-full rounded-[2rem] border border-gray-200 bg-white/90 shadow-xl overflow-hidden flex items-center justify-center px-4">
+                <div className="relative w-full h-full flex items-center justify-center gap-6">
+                  <motion.img
+                    src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=800&auto=format&fit=crop"
+                    alt="Angry cat left"
+                    className="h-40 sm:h-56 lg:h-72 w-auto object-cover rounded-2xl shadow-2xl border border-white/60"
+                    animate={{ x: [-8, 8, -8], rotate: [-2, 2, -2] }}
+                    transition={{ repeat: Infinity, duration: 1.4 }}
+                    draggable={false}
+                  />
                   <motion.div
-                    className="text-[64px] sm:text-[88px] lg:text-[112px] select-none"
-                    animate={{ x: [-6, 6, -6], rotate: [-2, 2, -2] }}
-                    transition={{ repeat: Infinity, duration: 1.2 }}
-                  >
-                    😼
-                  </motion.div>
-                  <motion.div
-                    className="mx-6 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-purple-500 to-blue-500"
+                    className="mx-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-purple-500 to-blue-500 select-none"
                     animate={{ scale: [1, 1.15, 1] }}
                     transition={{ repeat: Infinity, duration: 1 }}
                   >
                     VS
                   </motion.div>
-                  <motion.div
-                    className="text-[64px] sm:text-[88px] lg:text-[112px] select-none"
-                    animate={{ x: [6, -6, 6], rotate: [2, -2, 2] }}
-                    transition={{ repeat: Infinity, duration: 1.2 }}
-                  >
-                    😾
-                  </motion.div>
+                  <motion.img
+                    src="https://images.unsplash.com/photo-1510940911221-16f49a1c122d?q=80&w=800&auto=format&fit=crop"
+                    alt="Angry cat right"
+                    className="h-40 sm:h-56 lg:h-72 w-auto object-cover rounded-2xl shadow-2xl border border-white/60"
+                    animate={{ x: [8, -8, 8], rotate: [2, -2, 2] }}
+                    transition={{ repeat: Infinity, duration: 1.4 }}
+                    draggable={false}
+                  />
 
                   {/* Pow effects */}
                   <motion.span
@@ -168,7 +172,7 @@ function App() {
                 What is <GradientText>$MICHI</GradientText>?
               </h2>
               <p className="mt-4 text-gray-700 text-lg">
-                A sci‑fi meme cat who got too close to a particle accelerator and now speaks charts. Built for chaos, boosted by community, and powered by angry‑cute energy.
+                A sci‑fi meme cat who got too close to a particle accelerator and now speaks charts. Built for chaos, boosted by community, and powered by angry‑cute energy — on Solana.
               </p>
               <ul className="mt-6 space-y-3 text-gray-700">
                 <li className="flex items-start gap-3"><Sparkles className="text-pink-500 mt-1" size={18}/> Neon glow, cosmic zoomies, meme propulsion</li>
@@ -237,15 +241,15 @@ function App() {
         <Container>
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">How to Buy</h2>
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">How to Buy (Solana)</h2>
               <ol className="mt-6 space-y-4 text-gray-700">
                 <li className="flex gap-3">
                   <div className="h-7 w-7 rounded-full bg-pink-500 text-white grid place-items-center font-bold">1</div>
-                  Get a wallet (MetaMask etc.), feed it some ETH (or your chain token). No catnip.
+                  Get a Solana wallet (Phantom, Solflare), then fund it with SOL.
                 </li>
                 <li className="flex gap-3">
                   <div className="h-7 w-7 rounded-full bg-purple-500 text-white grid place-items-center font-bold">2</div>
-                  Open your favorite DEX and paste our CA. Don’t fat‑paw the slippage.
+                  Open Pump.fun and paste our CA. Double-check you’re on Solana.
                 </li>
                 <li className="flex gap-3">
                   <div className="h-7 w-7 rounded-full bg-blue-500 text-white grid place-items-center font-bold">3</div>
@@ -253,10 +257,10 @@ function App() {
                 </li>
               </ol>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a id="buy" href="#" className="inline-flex items-center gap-2 rounded-full bg-gray-900 text-white px-5 py-3 font-semibold">
-                  Launch DEX <ArrowRight size={18}/>
+                <a id="buy" href={pumpFunUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gray-900 text-white px-5 py-3 font-semibold">
+                  Launch Pump.fun <ArrowRight size={18}/>
                 </a>
-                <a href="#" className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-3 font-semibold">
+                <a href={`https://www.dextools.io/app/en/solana/pair-explorer/${ca}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-3 font-semibold">
                   View Chart
                 </a>
               </div>
@@ -299,7 +303,7 @@ function App() {
               { title: 'Phase 2 — Paw-tnerships', points: ['Listings & verifications', 'IRL stunts (maybe)', 'More utility (but cute)']},
               { title: 'Phase 3 — Moon & Nap', points: ['Bigger campaigns', 'Animal charity', 'World domination (then nap)']},
             ].map((card, i) => (
-              <div key={i} className="relative rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div key={i} className="relative rounded-3rdborder border-gray-200 bg-white p-6 shadow-sm border rounded-3xl">
                 <div className="absolute -inset-0.5 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-10" />
                 <div className="relative">
                   <div className="text-xl font-bold mb-3">{card.title}</div>
