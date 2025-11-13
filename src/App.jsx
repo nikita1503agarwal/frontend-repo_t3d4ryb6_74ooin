@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Twitter, MessageCircle, Globe, Copy, ArrowRight, PawPrint, Sparkles, Flame } from 'lucide-react'
-import Spline from '@splinetool/react-spline'
+import { Twitter, MessageCircle, Copy, ArrowRight, PawPrint, Sparkles, Flame } from 'lucide-react'
 
 const Section = ({ id, children, className = '' }) => (
   <section id={id} className={`relative w-full ${className}`}>{children}</section>
@@ -66,16 +65,12 @@ function App() {
         </Container>
       </header>
 
-      {/* Hero with Spline cover */}
+      {/* Hero: angry cats fighting, no coin animation */}
       <Section id="home" className="relative">
-        <div className="relative h-[72vh] sm:h-[78vh] lg:h-[86vh]">
-          <div className="absolute inset-0">
-            <Spline scene="https://prod.spline.design/vi0ijCQQJTRFc8LA/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-          </div>
-          {/* Overlays */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 via-white/0 to-white" />
-          <Container className="relative h-full flex items-center">
-            <div className="w-full max-w-3xl">
+        <div className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-purple-50/50" />
+          <Container className="relative grid lg:grid-cols-2 items-center gap-10 min-h-[70vh] py-12">
+            <div className="order-2 lg:order-1">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -113,6 +108,52 @@ function App() {
               >
                 <Flame size={14} /> Warning: easily excitable catcoin
               </motion.div>
+            </div>
+
+            {/* Angry Cat Fight Visual */}
+            <div className="order-1 lg:order-2 relative h-[40vh] sm:h-[50vh] lg:h-[60vh]">
+              <div className="absolute -inset-2 rounded-[2rem] bg-gradient-to-tr from-rose-400/30 via-purple-400/20 to-blue-400/30 blur-2xl" />
+              <div className="relative h-full rounded-[2rem] border border-gray-200 bg-white/90 shadow-xl overflow-hidden grid place-items-center">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <motion.div
+                    className="text-[64px] sm:text-[88px] lg:text-[112px] select-none"
+                    animate={{ x: [-6, 6, -6], rotate: [-2, 2, -2] }}
+                    transition={{ repeat: Infinity, duration: 1.2 }}
+                  >
+                    😼
+                  </motion.div>
+                  <motion.div
+                    className="mx-6 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-purple-500 to-blue-500"
+                    animate={{ scale: [1, 1.15, 1] }}
+                    transition={{ repeat: Infinity, duration: 1 }}
+                  >
+                    VS
+                  </motion.div>
+                  <motion.div
+                    className="text-[64px] sm:text-[88px] lg:text-[112px] select-none"
+                    animate={{ x: [6, -6, 6], rotate: [2, -2, 2] }}
+                    transition={{ repeat: Infinity, duration: 1.2 }}
+                  >
+                    😾
+                  </motion.div>
+
+                  {/* Pow effects */}
+                  <motion.span
+                    className="absolute top-6 left-6 text-xs sm:text-sm px-2 py-1 rounded-full bg-amber-100 text-amber-700 border border-amber-200"
+                    animate={{ scale: [1, 1.2, 1], rotate: [0, -6, 6, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.4 }}
+                  >
+                    POW!
+                  </motion.span>
+                  <motion.span
+                    className="absolute bottom-8 right-8 text-xs sm:text-sm px-2 py-1 rounded-full bg-rose-100 text-rose-700 border border-rose-200"
+                    animate={{ scale: [1, 1.2, 1], rotate: [0, 6, -6, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.6 }}
+                  >
+                    HISSS!
+                  </motion.span>
+                </div>
+              </div>
             </div>
           </Container>
         </div>
@@ -274,7 +315,7 @@ function App() {
         </Container>
       </Section>
 
-      {/* Socials (no chrome extension / mini games / merch / tools icons as requested) */}
+      {/* Socials (website removed) */}
       <Section id="socials" className="py-20">
         <Container>
           <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-xl relative">
@@ -285,7 +326,6 @@ function App() {
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                 <a href="#" className="inline-flex items-center gap-2 rounded-full bg-black text-white px-5 py-3"><Twitter size={18}/> Twitter</a>
                 <a href="#" className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-3"><MessageCircle size={18}/> Telegram</a>
-                <a href="#" className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-3"><Globe size={18}/> Website</a>
               </div>
             </div>
           </div>
